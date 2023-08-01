@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect, useState } from 'react'
 import styles from './navbar.module.css'
 import Link from 'next/link'
 
@@ -25,21 +27,31 @@ const links = [
   }
 ];
 
-const Navbar = () => {
+const Navbar = (): React.JSX.Element => {
+  const [scrolled, setScrolled] = useState<boolean>(false)
+  
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  })
+
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 0);    
+  }
+
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${scrolled ? styles.scrolled : ""}`} >
       <Link href="/" className={styles.logo}>
         Cocktail Explorer
       </Link>
       <div className={styles.links}>
-        {/* <DarkModeToggle /> */}
         {links.map((link) => (
           <Link key={link.id} href={link.url} className={styles.link}>
             {link.title}
           </Link>
         ))}
       </div>
-    </div>
+    </div >
   )
 }
 

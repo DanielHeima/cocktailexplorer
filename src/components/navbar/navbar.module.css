@@ -1,13 +1,23 @@
 .container {
-  height: 5em;
+  height: fit-content;
+  position: sticky;
+  left: 0;
+  right:0;
+  top:0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
-  background: linear-gradient(45deg, rgb(72, 73, 73),rgb(106, 1, 1));
+  padding: 1.5rem;
+  background-color: transparent;
   font-size: 1.2em;
   font-weight: 500;
-  color: rgb(230, 157, 157);
+  color: #000;
+  transition: 1s;
+}
+
+.scrolled {
+  background-color: #000;
+  color: white;
 }
 
 .links {

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        
+        <h1 className={styles.title}>Cocktail explorer. Take/catch/tickle/suit your fancy!</h1>
       </div>
     </div>
   )
