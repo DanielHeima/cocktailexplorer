@@ -13,9 +13,9 @@ const EyeCatcher = () => {
             <div className={styles.imgContainer}>
               <Image src="/coctailcatcher.png" fill={true} objectFit='contain' alt="Logo" />
             </div>
-            <h1 className={`${styles.title} ${styles.item}`}>Cocktail explorer</h1>
+            <h1 className={styles.title}>Cocktail explorer</h1>
           </div>
-          <div className={`${styles.subTitle} ${styles.item}`}>
+          <div className={styles.subTitle}>
             {/* <TextLoop springConfig={{ stiffness: 180, damping: 8 }}> */}
             {/* <div>Tickle</div> */}
             {/* <div>Catch</div>

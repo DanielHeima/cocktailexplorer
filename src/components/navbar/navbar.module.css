@@ -16,6 +16,19 @@
   z-index: 1;
 }
 
+
+.imgContainer {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+}
+
+.logo{
+  display: flex;
+  flex-direction: row;
+}
+
 .scrolled {
   background-color: #000;
   color: white;

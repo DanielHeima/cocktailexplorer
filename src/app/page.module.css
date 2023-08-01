@@ -17,3 +17,14 @@
 .content {
   
 }
+
+.imgContainer {
+  width: 4em;
+  height: 4em;
+  position: relative;
+}
+
+.logo {
+  position: relative;
+  width: 5em;
+}
