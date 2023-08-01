@@ -1,12 +1,16 @@
 import Image from 'next/image'
 import styles from './page.module.css'
+import EyeCatcher from '@/components/eyecatcher/EyeCatcher'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <h1 className={styles.title}>Cocktail explorer. Take/catch/tickle/suit your fancy!</h1>
+    <>
+      <div className={styles.container}>
+        <EyeCatcher />
+        <div className={styles.content}>
+
+        </div>
       </div>
-    </div>
+    </>
   )
 }

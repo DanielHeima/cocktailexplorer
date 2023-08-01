@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+  background-image: url('/sangria.avif');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.split {
+  flex: 1;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5rem;
+  gap: 50px;
+}
+
+.imgContainer {
+  position: relative;
+  width: 4em;
+  height: 4em;
+}
+
+.title {
+  font-size: 4em;
+}
+
+.subTitle{
+  font-size: 3em;
+}
+
+.desc {
+  font-size: 2em;
+}
+
+.item {
+
+}
+
+.logoAndTitle {
+  display: flex;
+  flex-direction: row;
+}

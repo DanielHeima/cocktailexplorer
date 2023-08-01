@@ -33,7 +33,7 @@ const Navbar = (): React.JSX.Element => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  })
+  }, [])
 
   const handleScroll = () => {
     setScrolled(window.scrollY > 0);    
