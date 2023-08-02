@@ -20,3 +20,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.test {
+  background-color: red;
+}

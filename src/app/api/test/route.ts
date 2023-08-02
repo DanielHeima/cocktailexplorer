@@ -1,7 +1,11 @@
-import { NextResponse } from "next/server";
+import { Drink } from "@/types/drink";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: Request) {
-  const url = process.env.FIRSTROUTE;
+export async function GET(request: NextRequest) {
+  // const url = process.env.FIRSTROUTE;
+  const url = new URL('/mock/data.json')
+  console.log(request);
+
   if (!url) {
     return NextResponse.json(
       { error: "[1] Internal Server Error" },
