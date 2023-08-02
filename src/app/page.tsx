@@ -8,7 +8,7 @@ export default function Home() {
       <div className={styles.container}>
         <EyeCatcher />
         <div className={styles.content}>
-
+        
         </div>
       </div>
     </>

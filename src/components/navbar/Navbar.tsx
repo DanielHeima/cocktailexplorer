@@ -45,7 +45,7 @@ const Navbar = (): React.JSX.Element => {
       <div>
         <Link href="/" className={styles.logo}>
           <div className={styles.imgContainer}>
-            <Image src="/coctailcatcher.png" fill={true} objectFit='contain' alt="Logo" />
+            <Image src="/cocktailcatcher.png" fill={true} objectFit='contain' alt="Logo" />
           </div>
            Cocktail Explorer
         </Link>

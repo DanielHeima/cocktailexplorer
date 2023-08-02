@@ -11,7 +11,7 @@ const EyeCatcher = () => {
         <div className={styles.texts}>
           <div className={styles.logoAndTitle}>
             <div className={styles.imgContainer}>
-              <Image src="/coctailcatcher.png" fill={true} objectFit='contain' alt="Logo" />
+              <Image src="/cocktailcatcher.png" fill={true} objectFit='contain' alt="Logo" />
             </div>
             <h1 className={styles.title}>Cocktail explorer</h1>
           </div>
@@ -28,9 +28,9 @@ const EyeCatcher = () => {
         </div>
       </div>
       <div className={styles.split}>
-        <div className={styles.imgContainer}>
+        {/* <div className={styles.imgContainer}> */}
           {/* <Image src="/coctailcatcher.png" fill={true} objectFit='contain' alt="Logo" /> */}
-        </div>
+        {/* </div> */}
       </div>
     </div>
   )
