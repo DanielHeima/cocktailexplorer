@@ -1,6 +1,5 @@
 .container {
   max-width: fit-content;
-
 }
 
 .card {
@@ -15,13 +14,13 @@
   border-radius: 2em;
   box-shadow: inset;
   overflow: hidden;
-  transition: 100ms ease-in-out;
   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  transition: 100ms ease-in-out;
 }
 
 .card:hover {
-  transform: scale(1.1, 1.1);
+  transform: scale(1.05, 1.05);
 }
 
 .imgContainer {
@@ -52,5 +51,5 @@
 }
 
 .ingredients {
-  
+
 }

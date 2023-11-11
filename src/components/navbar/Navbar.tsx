@@ -32,11 +32,12 @@ const Navbar = (): React.JSX.Element => {
   const [scrolled, setScrolled] = useState<boolean>(false)
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    checkScrollStatus();
+    window.addEventListener('scroll', checkScrollStatus)
+    return () => window.removeEventListener('scroll', checkScrollStatus)
   }, [])
 
-  const handleScroll = () => {
+  const checkScrollStatus = () => {
     setScrolled(window.scrollY > 0);
   }
 

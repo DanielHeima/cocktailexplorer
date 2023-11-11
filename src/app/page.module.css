@@ -17,7 +17,8 @@
 .content {
   width: 100%;
   z-index: 10;
-  margin-top: 100vh;
+  margin-top: 88vh;
+  flex-direction: column;
 }
 
 .imgContainer {
@@ -29,4 +30,17 @@
 .logo {
   position: relative;
   width: 5em;
+}
+
+@media (max-width: 1050px){
+  .container {
+    padding: 4rem;
+  }
+}
+
+
+@media (max-width: 700px){
+  .container {
+    padding: 1rem;
+  }
 }
