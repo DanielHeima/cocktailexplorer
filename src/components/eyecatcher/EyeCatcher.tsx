@@ -11,7 +11,7 @@ const EyeCatcher = () => {
         <div className={styles.texts}>
           <div className={styles.logoAndTitle}>
             <div className={styles.imgContainer}>
-              <Image src="/cocktailcatcher.png" 
+              <Image src="/cocktailcatcher.svg" 
               fill={true} 
               objectFit='contain'
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

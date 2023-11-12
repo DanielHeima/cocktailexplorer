@@ -3,15 +3,27 @@ import { Drink } from '@/types/drink'
 import Image from 'next/image'
 import styles from './drinkcard.module.css'
 import Link from 'next/link'
-import { getIngredients } from '@/app/utils/drinkData'
+import { getIngredients } from '@/utils/drinkData'
+import { Res } from '@/types/res'
 
 type DrinkCardProps = {
-  id?: number;
-  drink?: Drink;
+  id?: string | undefined;
+  drink?: Drink | undefined;
 }
 
-const getData = async () => {
-  const res = await fetch("http://127.0.0.1:3000/api/test?secret=123", {
+type DrinkByIDRes = {
+  data:{
+    drinks: {
+      0: Drink
+    }
+  }
+}
+
+const getDrinkById = async (id: string | undefined): Promise<DrinkByIDRes | undefined>  => {
+  if (!id) {
+    return;
+  }
+  const res = await fetch(`${process.env.BASE_URL}/api/drinks/${id}?secret=${process.env.API_SECRET}`, {
     method: 'GET',
   });
 
@@ -22,27 +34,26 @@ const getData = async () => {
   return res.json();
 }
 
-type Data = {
-  data: {
-    drinks: Drink[]
-  }
-}
-
 const DrinkCard = async (props: DrinkCardProps) => {
 
-  // if (!props.id) {
-  // fetch by id
-  const data: Data | undefined = await getData();
-  const drinks: Drink[] | undefined = data?.data?.drinks;
   let drink: Drink | undefined;
-  if (drinks) {
-    drink = drinks[0];
+  if (props.id) {
+  // fetch by id
+    const res: DrinkByIDRes | undefined = await getDrinkById(props.id);
+    console.log(res);
+    const drink: Drink | undefined = res?.data?.drinks?.[0];
+
+    console.log(drink);
+  } else {
+    drink = props.drink;
   }
+
   // } 
   // || !props.drink) {  
   if (!drink) {
     return
     <>
+    <p>asdf</p>
     </>
   }
 

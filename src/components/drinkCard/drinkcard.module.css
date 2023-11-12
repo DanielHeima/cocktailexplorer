@@ -9,7 +9,9 @@
   background-color: #3b3333;
   cursor: pointer;  
   justify-content: flex-start;
-  max-width: 300px;
+  max-width: 19em;
+  min-width: 19em;
+  min-height: 25em;
   border: none;
   border-radius: 2em;
   box-shadow: inset;
@@ -34,7 +36,7 @@
   flex-direction: column;
   padding: 1rem;
   color: white;
-  word-break: break-all; 
+  word-wrap: break-word;
 }
 
 .title {
