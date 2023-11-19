@@ -6,14 +6,12 @@ export const getDrinkById = async (id: string | undefined): Promise<DrinkByIDRes
         console.error('Error: id is undefined');
         return;
     }
-    const res = await fetch(`${process.env.BASE_URL}/api/drinks/${id}?secret=${process.env.API_SECRET}`, {
+    const res = await fetch(`${process.env.BASE_URL}/api/drinks/${id}?token=${process.env.API_SECRET}`, {
         method: 'GET',
     });
 
-    console.log('getDrinkById res', res);
-
     if (!res.ok) {
-        console.error('Error: getDrinkById response not ok.', res);
+        console.error('Error: getDrinkById response not OK. Status: ', res.status);
         return;
     }
 
@@ -21,12 +19,12 @@ export const getDrinkById = async (id: string | undefined): Promise<DrinkByIDRes
 }
 
 export const getHomeDrinks = async (): Promise<DrinksResponse | undefined> => {
-    const res: Response = await fetch(`${process.env.BASE_URL}/api/drinks?secret=${process.env.API_SECRET}`, {
+    const res: Response = await fetch(`${process.env.BASE_URL}/api/drinks?token=${process.env.API_SECRET}`, {
         method: 'GET',
     });
 
     if (!res.ok) {
-        console.error('Error: getHomeDrinks response not ok.', res);
+        console.error('Error: getHomeDrinks response not OK.', res.status);
         return;
     }
 
