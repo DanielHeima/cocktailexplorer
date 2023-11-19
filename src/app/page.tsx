@@ -4,31 +4,15 @@ import styles from './page.module.css'
 import EyeCatcher from '@/components/eyecatcher/EyeCatcher'
 import DrinkCard from '@/components/drinkCard/DrinkCard';
 import { Drink } from '@/types/drink';
-import { Res } from '@/types/res';
-
-const getHomeDrinks = async (): Promise<Res | undefined> => {
-  const res = await fetch(`${process.env.BASE_URL}/api/drinks?secret=${process.env.API_SECRET}`, {
-    method: 'GET',
-  });
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-    // return;
-  }
-
-  return res.json();
-}
+import { DrinksResponse } from '@/types/responses';
+import { getHomeDrinks } from '@/services/drinkService';
 
 export default async function Home() {
-  const res = await getHomeDrinks();
+  const res: DrinksResponse | undefined = await getHomeDrinks();
   const drinks: Drink[] | undefined = res?.data?.drinks;
-  console.log(res);
-  // const drinks: Drink[] = data?.drinks;
-  // console.log(data?.drinks);
 
   if (!drinks) {
-    return <>
-    </>
+    return;
   }
   
   return (
@@ -39,7 +23,9 @@ export default async function Home() {
           <Grid>
             {drinks.map((drink: Drink, idx: number) => {
               return <>
-                <DrinkCard drink={drink} />
+                <DrinkCard 
+                  key={idx} 
+                  drink={drink} />
               </>
             })}
           </Grid>

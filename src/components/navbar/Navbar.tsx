@@ -46,9 +46,9 @@ const Navbar = (): React.JSX.Element => {
       <div>
         <Link href="/" className={styles.logo}>
           <div className={styles.imgContainer}>
-            <Image src="/cocktailcatcher.png"
+            <Image src="/cocktailcatcher.svg"
             fill={true} 
-            objectFit='contain' 
+            style={{objectFit: "contain"}}
             alt="Logo" 
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
