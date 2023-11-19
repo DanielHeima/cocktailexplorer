@@ -4,7 +4,7 @@ import { promises as fs } from 'fs';
 import { NextApiRequest, NextApiResponse } from "next";
 import { useRouter } from "next/router";
 
-export async function GET(req: NextApiRequest, { params }: { params: {id: string}}) {
+export async function GET(req: NextRequest, { params }: { params: {id: string}}) {
     const id: string = params.id;
     if (!id) {
       NextResponse.json({
@@ -29,7 +29,6 @@ export async function GET(req: NextApiRequest, { params }: { params: {id: string
         error: `[2] Internal Server Error: ${err}`,
         status: 500
       })
-      //res.status(500).json({ error: `[2] Internal Server Error: ${err}`});
     }
   }
   

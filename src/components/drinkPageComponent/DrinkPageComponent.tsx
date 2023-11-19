@@ -17,7 +17,19 @@ export const DrinkPageComponent = (props: { drink: Drink; }) => {
                         <DrinkRecipeCard drink={drink} />
                     </div>
                     <div className={styles.desc}>
-                        <p>🍸 {drink.strInstructions}</p>
+                        {
+                            drink.strInstructions && drink.strInstructions.split('.').map((val, idx) => {
+                                if (!val) {
+                                    return;
+                                }
+                                if (!val.endsWith('!')) {
+                                    val = val + '.';
+                                }
+                                return (
+                                     <p key={idx}>🍸 {val}</p>
+                                )
+                            })
+                        }
                     </div>
                 </div>
                 <div className={styles.pictureContainer}>

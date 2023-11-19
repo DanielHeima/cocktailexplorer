@@ -45,9 +45,9 @@ const DrinkCard = async (props: DrinkCardProps) => {
             <div className={styles.desc}>
               <div className={styles.ingredients}>
               {getIngredients(drink).map((value, idx, arr) => {
-                return <>
+                return (
                   <span key={idx}>{idx < arr.length - 1 ? value + ' · ' : value}</span>
-                </>
+                )
               })}
               </div>
             </div>

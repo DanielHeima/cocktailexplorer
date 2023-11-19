@@ -14,7 +14,7 @@ export default async function Home() {
   if (!drinks) {
     return;
   }
-  
+
   return (
     <>
       <div className={styles.container}>
@@ -22,11 +22,10 @@ export default async function Home() {
         <div className={styles.content}>
           <Grid>
             {drinks.map((drink: Drink, idx: number) => {
-              return <>
-                <DrinkCard 
-                  key={idx} 
-                  drink={drink} />
-              </>
+              return (
+                <div key={idx}>
+                  <DrinkCard drink={drink} />
+                </div>)
             })}
           </Grid>
         </div>
