@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    background-color: #f5e8e8;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    max-width: fit-content;
+    border-radius: 1em;
+    box-shadow: inset;
+    overflow: hidden;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    transition: 100ms ease-in-out;
+}
+.ingredients {
+    padding-right: 2em;
+}
+.ingName {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+.measurements {
+}
+
+.measurement {
+    margin-bottom: 0.5em;
+}

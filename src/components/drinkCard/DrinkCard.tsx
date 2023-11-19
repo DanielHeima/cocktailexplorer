@@ -34,19 +34,19 @@ const DrinkCard = async (props: DrinkCardProps) => {
             <Image
               src={drink.strDrinkThumb ? drink.strDrinkThumb : ''}
               alt={drink.strDrink ? drink.strDrink : ''}
-              objectFit='cover'
+              style={{objectFit: "cover"}}
               fill={true}
             />
           </div>
           <div className={styles.text}>
             <div className={styles.title}>
-              <h1>{drink.strDrink}</h1>
+              <h2>{drink.strDrink}</h2>
             </div>
             <div className={styles.desc}>
               <div className={styles.ingredients}>
               {getIngredients(drink).map((value, idx, arr) => {
                 return <>
-                  {idx < arr.length - 1 ? value + ' · ' : value}
+                  <span key={idx}>{idx < arr.length - 1 ? value + ' · ' : value}</span>
                 </>
               })}
               </div>

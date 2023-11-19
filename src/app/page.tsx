@@ -23,7 +23,9 @@ export default async function Home() {
           <Grid>
             {drinks.map((drink: Drink, idx: number) => {
               return <>
-                <DrinkCard key={idx} drink={drink} />
+                <DrinkCard 
+                  key={idx} 
+                  drink={drink} />
               </>
             })}
           </Grid>

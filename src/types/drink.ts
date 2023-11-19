@@ -74,6 +74,24 @@ export enum IngredientKeyEnum {
   "strIngredient15",
 }
 
+export enum MeasurementKeyEnum {
+  "strMeasure1",
+  "strMeasure2",
+  "strMeasure3",
+  "strMeasure4",
+  "strMeasure5",
+  "strMeasure6",
+  "strMeasure7",
+  "strMeasure8",
+  "strMeasure9",
+  "strMeasure10",
+  "strMeasure11",
+  "strMeasure12",
+  "strMeasure13",
+  "strMeasure14",
+  "strMeasure15",
+}
+
 export enum MeasureKeyEnum {
   "strMeasure1",
   "strMeasure2",
