@@ -1,9 +1,24 @@
 import React from 'react'
+import styles from './page.module.css'
+import { getDrinkById } from '@/services/drinkService'
+import { DrinkByIDResponse } from '@/types/responses'
+import { Drink } from '@/types/drink'
 
-const Drink = ({params}:{params: {id: number}}) => {
+type DrinkParams = {
+  params: {id: string}
+}
+
+const DrinkPage = async ({params}: DrinkParams) => {
+  const res: DrinkByIDResponse | undefined = await getDrinkById(params.id);
+  const drink: Drink | undefined = res?.data?.drinks?.[0];
+
+  if (!drink) {
+    return;
+  }
+
   return (
-    <div>{params.id}</div>
+    <div>{drink.strDrink}</div>
   )
 }
 
-export default Drink
+export default DrinkPage
