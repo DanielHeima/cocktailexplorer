@@ -13,8 +13,8 @@ const links = [
   },
   {
     id: 2,
-    title: "Something",
-    url: "/",
+    title: "Search",
+    url: "/search",
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const links = [
   },
   {
     id: 4,
-    title: "Cocktails",
+    title: "My cocktails?",
     url: "/",
   }
 ];
