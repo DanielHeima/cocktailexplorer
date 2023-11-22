@@ -1,20 +1,15 @@
-.container {
-    position: relative;
-}
-
 .searchBarContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-image: url('/sangria.avif');
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
@@ -29,17 +24,26 @@
 
 .higher {
     position: absolute;
-    top: 5em;
+    top: 8em;
 }
-
+.resultsContainer {
+    margin-top: 10em;
+    margin-bottom: 2em;
+}
 .results {
-    padding-top: 5em;
+    position: relative;
 }
 
 .resultsTitle {
-    color: #fff;
-    padding-bottom: 1em;
-    
+    margin: 0 auto;
+    margin-bottom: 2em;
+    color: #ffb4b4;
+    background-color: black;
+    width: fit-content;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
 }
 
 .loadingContainer {

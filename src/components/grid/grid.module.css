@@ -1,14 +1,15 @@
 .content {
   display: grid;
-  column-gap: 1em;
+  column-gap: 2em;
   row-gap: 4em;
-  width: 100%;  
+  width: fit-content;  
   grid-template-columns: repeat(4, 1fr); 
 }
 
 @media (max-width: 1050px) {
   .content{
     grid-template-columns: repeat(2, 1fr); 
+    column-gap: 1em;
   } 
 }
 

@@ -3,13 +3,14 @@ import SearchBar from '@/components/searchbar/SearchBar'
 import React, { ChangeEvent, Suspense, useEffect, useRef, useState } from 'react'
 import styles from './page.module.css'
 import { Drink } from '@/types/drink'
-import { useRouter } from 'next/navigation'
+import { RedirectType, redirect, useRouter } from 'next/navigation'
 import { getDrinksByNameSearch } from '@/services/drinkService'
 import { DrinksResponse } from '@/types/responses'
 import Grid from '@/components/grid/Grid'
 import DrinkCard from '@/components/cards/drinkCard/DrinkCard'
 import DrinksInAGrid from '@/components/drinksInAGrid/DrinksInAGrid'
 import { LinearProgress, CircularProgress } from '@mui/material'
+import { useSearchParams } from 'next/navigation'
 
 const SearchPage = () => {
   const [inputText, setInputText] = useState("");
@@ -18,14 +19,25 @@ const SearchPage = () => {
   const [isError, setIsError] = useState(false);
   const [nothingFound, setNothingFound] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(false);
+  const { push } = useRouter();
+
+  const searchParams = useSearchParams()
+  const query = searchParams.get('q');
 
   useEffect(() => {
     console.log('search useeffect');
-    if (!inputText)
-      return;
+    if (!query) {
+      setDrinks([]);
+      setInputText('');
+      setIsLoading(false);
+      return () => {
+      };
+    }
+
+    setInputText(query);
 
     setIsLoading(true);
-    fetch(`/api/drinks/search/${inputText}?token=${process.env.API_SECRET}`)
+    fetch(`/api/drinks/search/${query}?token=${process.env.API_SECRET}`)
       .then((res: Response) => {
         setNothingFound(false);
 
@@ -38,16 +50,15 @@ const SearchPage = () => {
         return res.json();
       })
       .then((dr: DrinksResponse | undefined) => {
-        console.log(dr);
         if (!dr) {
           return;
         }
         const drinksHopefully: Drink[] = dr?.data?.drinks;
-        console.log(drinksHopefully);
         if (drinksHopefully) {
           setDrinks(drinksHopefully);
         } else {
           setNothingFound(true);
+          setDrinks([]);
         }
 
         setIsLoading(false);
@@ -57,11 +68,14 @@ const SearchPage = () => {
         console.log(e);
       })
 
-  }, [toggleSearch])
+    return () => { };
+
+  }, [query])
 
   const searchHandler = () => {
-    console.log('toggle');
-    setToggleSearch(!toggleSearch);
+    if (inputText !== '') {
+      push(`/search?q=${inputText}#results`);
+    }
   }
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -88,23 +102,23 @@ const SearchPage = () => {
           <SearchBar
             searchHandler={searchHandler}
             handleInputChange={handleInputChange}
+            inputValue={inputText}
           />
           {isLoading && <div className={styles.loadingContainer}>
             <LinearProgress />
           </div>}
         </div>
       </div>
-      <div className={styles.container}>
-        {drinks.length > 0 &&
-          (
-            <Suspense fallback={<CircularProgress/>}>
-              <div id="results" className={styles.results}>
-                <h1 className={styles.resultsTitle}>Results</h1>
-                <DrinksInAGrid drinks={drinks} />
-              </div>
-            </Suspense>
-          )}
-      </div>
+      {drinks.length > 0 &&
+        <div className={styles.resultsContainer}>
+          <Suspense fallback={<div />}>
+            <div id="results" className={styles.results}>
+              {/* <h1 className={styles.resultsTitle}>Results</h1> */}
+              <DrinksInAGrid drinks={drinks} />
+            </div>
+          </Suspense>
+        </div>
+      }
     </>
   )
 }

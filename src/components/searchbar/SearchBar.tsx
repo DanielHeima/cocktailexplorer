@@ -8,6 +8,7 @@ import { ChangeEvent } from 'react'
 type SearchBarProps = {
   searchHandler: () => void
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void
+  inputValue: string
 }
 
 const SearchBar = (props: SearchBarProps) => {
@@ -17,7 +18,9 @@ const SearchBar = (props: SearchBarProps) => {
           onChange={props.handleInputChange}
           autoFocus={true}
           className={styles.input}
-          placeholder='What do you fancy...'>
+          placeholder='What do you fancy...'
+          value={props.inputValue}
+          >
         </input>
         <div className={styles.button}>
           <Button

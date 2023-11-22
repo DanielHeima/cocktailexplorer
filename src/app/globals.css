@@ -16,8 +16,8 @@ body {
 
 .content {
   max-width: 1366px;
-  min-height: 100vh;
   margin: 0 auto;
+  min-height: 86vh;
 }
 
 a {
