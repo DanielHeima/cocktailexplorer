@@ -18,17 +18,17 @@ const DrinkRecipeCard = (props: { drink: Drink }) => {
     return (
         <div className={styles.container}>
             <div className={styles.ingredients}>
-                {ingredients.map((val, idx, arr) => {
+                {ingredients.map((val, idx) => {
                     return (
                         <div key={idx} className={styles.ingName}>
-                           🕺 {val}
+                            🕺 {val}
                         </div>
                     )
                 })}
             </div>
 
             <div className={styles.measurements}>
-                {measurements.map((val, idx, arr) => {
+                {measurements.map((val, idx) => {
                     return (
                         <div key={idx} className={styles.measurement}>
                             {val}

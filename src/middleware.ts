@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function middleware(request: NextRequest) {
+  console.log(`Received ${request.method} request to ${request.url} at ${new Date()}`);
+
   if (!request.nextUrl.pathname.startsWith('/api')) {
     return NextResponse.next();
   }

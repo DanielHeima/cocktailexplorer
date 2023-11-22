@@ -2,7 +2,7 @@ import { Drink } from "@/types/drink";
 import React from "react";
 import styles from "./drinkpagecomponent.module.css";
 import Image from 'next/image';
-import DrinkRecipeCard from "../drinkRecipeCard/DrinkRecipeCard";
+import DrinkRecipeCard from "../cards/drinkRecipeCard/DrinkRecipeCard";
 
 export const DrinkPageComponent = (props: { drink: Drink; }) => {
     const drink = props.drink;

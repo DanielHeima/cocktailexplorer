@@ -1,0 +1,58 @@
+.searchBarContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/sangria.avif');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.searchBar {
+    position: absolute;
+    left: 20vw;
+    right: 20vw;
+}
+
+.higher {
+    position: absolute;
+    top: 8em;
+}
+.resultsContainer {
+    margin-top: 10em;
+    margin-bottom: 2em;
+}
+.results {
+    position: relative;
+}
+
+.resultsTitle {
+    margin: 0 auto;
+    margin-bottom: 2em;
+    color: #ffb4b4;
+    background-color: black;
+    width: fit-content;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+.loadingContainer {
+    width: 100%;
+
+}
+
+.loading {
+    margin-top: 10em;
+    color: #fff;
+}
+

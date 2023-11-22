@@ -30,3 +30,24 @@ export const getHomeDrinks = async (): Promise<DrinksResponse | undefined> => {
 
     return res.json();
 }
+
+export const getDrinkJsonByNameSearch = async (keyword: string): Promise<DrinksResponse | undefined> => {
+    const res: Response = await fetch(`/api/drinks/search/${keyword}?token=${process.env.API_SECRET}`, {
+        method: 'GET',
+    });
+
+    if (!res.ok) {
+        console.error('Error: getDrinkByNameSearch response not OK.', res.status);
+        return;
+    }
+
+    return res.json();
+}
+
+export const getDrinksByNameSearch = async (keyword: string): Promise<Drink[] | undefined> => {
+    const drinkJson: DrinksResponse | undefined = await getDrinkJsonByNameSearch(keyword);
+    
+    return drinkJson?.data?.drinks;
+   
+}
+
