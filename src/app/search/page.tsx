@@ -113,7 +113,6 @@ const SearchPage = () => {
         <div className={styles.resultsContainer}>
           <Suspense fallback={<div />}>
             <div id="results" className={styles.results}>
-              {/* <h1 className={styles.resultsTitle}>Results</h1> */}
               <DrinksInAGrid drinks={drinks} />
             </div>
           </Suspense>
