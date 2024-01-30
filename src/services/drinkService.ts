@@ -44,10 +44,17 @@ export const getDrinkJsonByNameSearch = async (keyword: string): Promise<DrinksR
     return res.json();
 }
 
-export const getDrinksByNameSearch = async (keyword: string): Promise<Drink[] | undefined> => {
-    const drinkJson: DrinksResponse | undefined = await getDrinkJsonByNameSearch(keyword);
-    
-    return drinkJson?.data?.drinks;
-   
+export const getDrinksByFirstLetter = async (letter: string): Promise<DrinksResponse | undefined> =>  {
+  const res: Response = await fetch(`${process.env.BASE_URL}/api/drinks/by-letter/${letter}?token=${process.env.API_SECRET}`, {
+    method: 'GET',
+  });
+  
+  if (!res.ok) {
+    console.error('Error: getDrinksByFirstLetter response not OK.', res.status);
+    return;
+  }
+
+  return res.json();
 }
 
+ 

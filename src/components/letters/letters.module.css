@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  margin: 1em;
+}
+
+.letterAndSlash {
+  font-size: 2.5em;
+  color: #bbb;
+  white-space: pre;
+  transition: 10ms ease-in;
+  height: fit-content;
+}
+
+.letter:hover {
+  opacity: 30%;
+  transform: scale(1.1, 1.1);
+}

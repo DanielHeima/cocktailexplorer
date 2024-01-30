@@ -4,7 +4,6 @@ import React, { ChangeEvent, Suspense, useEffect, useRef, useState } from 'react
 import styles from './page.module.css'
 import { Drink } from '@/types/drink'
 import { RedirectType, redirect, useRouter } from 'next/navigation'
-import { getDrinksByNameSearch } from '@/services/drinkService'
 import { DrinksResponse } from '@/types/responses'
 import Grid from '@/components/grid/Grid'
 import DrinkCard from '@/components/cards/drinkCard/DrinkCard'
